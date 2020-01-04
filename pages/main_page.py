@@ -2,6 +2,7 @@ from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import MainPageLocators
 
+
 class MainPage(BasePage):
     def go_to_main_page(self):
         button = self.browser.find_element(*MainPageLocators.LOGO_LINK)
@@ -18,7 +19,7 @@ class MainPage(BasePage):
         amount_cards = len(cards)
         print("Amount of cards per page " + str(amount_cards))
         assert amount_cards >= 3, 'Less than three cards per page'
-    
+
     def links_lead_to_different_pages(self):
         link = "https://stepik-flask01.herokuapp.com/"
         menu_items = self.browser.find_elements(*MainPageLocators.AMOUNT_OF_MENU_ITEMS)
@@ -53,7 +54,7 @@ class MainPage(BasePage):
             new_content = element.text
             assert content != new_content, 'Duplicate content'
             print("Content # " + str(i) + "\n" + new_content)
-            i = i + 1 
+            i = i + 1
 
     def cards_have_different_link(self, link):
         link_on_card = self.browser.find_elements(*MainPageLocators.LINK_ON_CARD)
@@ -65,7 +66,7 @@ class MainPage(BasePage):
             new_link = element.get_attribute("href")
             assert link != new_link and link_one != new_link, 'Links do not lead to internal pages'
             print("Link # " + str(i) + "\n" + new_link)
-            i = i + 1 
+            i = i + 1
 
 
 

@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 
+
 class MainPageLocators():
     LOGO_LINK = (By.CLASS_NAME, "navbar-brand") #knopka logo
     HEADING_MAIN = (By.CLASS_NAME, "display-4") #glavnaya ctr
@@ -9,5 +10,5 @@ class MainPageLocators():
     PICTURE_ON_CARD = (By.CLASS_NAME, "card-img-top")
     CONTENT_ON_CARD = (By.CLASS_NAME, "card-text")
     LINK_ON_CARD = (By.CLASS_NAME, "btn-primary")
-    
+
 
