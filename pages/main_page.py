@@ -1,7 +1,6 @@
 from .base_page import BasePage
 from selenium.webdriver.common.by import By
 from .locators import MainPageLocators
-import time
 
 class MainPage(BasePage):
     def should_be_main_page_link_on_logo(self):
