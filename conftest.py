@@ -2,9 +2,17 @@ import pytest
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 
+<<<<<<< HEAD
 def pytest_addoption(parser):
     parser.addoption('--browser', action='store', default="chrome", help="Choose browser: chrome or firefox")
 
+=======
+
+def pytest_addoption(parser):
+    parser.addoption('--browser', action='store', default="chrome", help="Choose browser: chrome or firefox")
+
+
+>>>>>>> d42005df3da7e08d61e91e312fb2f442b5ef2fa0
 @pytest.fixture(scope="function")
 def browser(request):
     browser = request.config.getoption("browser")
@@ -24,4 +32,8 @@ def browser(request):
 
     yield browser
     print("\nquit browser ")
+<<<<<<< HEAD
     browser.quit()
+=======
+    browser.quit()
+>>>>>>> d42005df3da7e08d61e91e312fb2f442b5ef2fa0
