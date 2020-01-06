@@ -6,7 +6,7 @@ def test_logo_link_should_be_presented(browser):
     page = MainPage(browser, link)
     page.open()
     page.should_be_main_page_link_on_logo()
-	
+
 def test_menu_should_be_presented(browser):
     page = MainPage(browser, link)
     page.open()

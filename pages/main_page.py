@@ -6,9 +6,7 @@ import time
 class MainPage(BasePage):
     def should_be_main_page_link_on_logo(self):
         button = self.browser.find_element(*MainPageLocators.LOGO_LINK)
-        button.click()
-        heading_main = self.is_element_present(*MainPageLocators.HEADING_MAIN)
-        assert heading_main, 'Does not go to the main page when clicking on the logo'
+        assert button, "Does not go to the main page when clicking on the logo"
 
     def should_be_menu_on_page(self):
         menu_main = self.is_element_present(*MainPageLocators.MENU_ON_PAGE)
