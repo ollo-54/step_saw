@@ -5,6 +5,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from .locators import MainPageLocators
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d42005df3da7e08d61e91e312fb2f442b5ef2fa0
 class BasePage():
     def __init__(self, browser, url, timeout=3):
         self.browser = browser
