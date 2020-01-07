@@ -1,7 +1,7 @@
 from .pages.main_page import MainPage
 
 link = "https://stepik-flask01.herokuapp.com/"
-    
+
 def test_logo_link_should_be_presented(browser):
     page = MainPage(browser, link)
     page.open()
@@ -37,13 +37,15 @@ def test_cards_have_different_link(browser):
     page.open()
     page.cards_have_different_links()
 
-def test_link_leads_to_the_direction_page(browser):
+def test_link_leads_to_the_departure_page(browser):
     page = MainPage(browser, link)
     page.open()
-    page.link_leads_to_the_direction_page()
+    page.click_on_the_departure_link()
+    page.should_be_departure_page()
 
 def test_link_leads_to_tour_page(browser):
     page = MainPage(browser, link)
     page.open()
-    page.link_leads_to_tour_page()
+    page.click_on_the_tour_link()
+    page.should_be_tour_page()
 
