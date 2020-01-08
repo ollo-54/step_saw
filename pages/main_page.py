@@ -1,12 +1,13 @@
-from pages.base_page import BasePage
-from pages.locators import MainPageLocators
-import time
+from .base_page import BasePage
+from .locators import MainPageLocators
+from .locators import DeparturePageLocators
+from .locators import TourPageLocators
 
 class MainPage(BasePage):
     def should_be_main_page_link_on_logo(self):
-        button = self.browser.find_element(*MainPageLocators.LOGO_LINK).get_attribute('href')
-        print('Link - ' + str(button))
-        assert button == 'https://stepik-flask01.herokuapp.com/', 'There is no link to the main page on the logo'
+        logo_link = self.browser.find_element(*MainPageLocators.LOGO_LINK).get_attribute('href')
+        print('Link - ' + str(logo_link))
+        assert logo_link == 'https://stepik-flask01.herokuapp.com/', 'There is no link to the main page on the logo'
 
     def should_be_menu_on_page(self):
         menu_main = self.is_element_present(*MainPageLocators.MENU_ON_PAGE)
@@ -78,22 +79,26 @@ class MainPage(BasePage):
         print('Total ' + str(len(list_of_links)) + ' links, ' + str(len(list_of_links_set)) + ' of which are unique')
         assert len(list_of_links) == len(list_of_links_set), 'Links do not lead to internal pages'
 
+class DeparturePage(BasePage):
     def click_on_the_departure_link(self):
         menu_item = self.browser.find_element(*MainPageLocators.MENU_ITEMS)
         menu_item.click()
-        transition_check_departure = self.browser.find_element(*MainPageLocators.TRANSITION_CHECK_DEPARTURE).text
-        assert 'Летим Из' in transition_check_departure, 'No go to departure page'
 
     def should_be_departure_page(self):
-        assert 'departure' in self.browser.current_url, 'The link does not lead to the departure page'
-        
+        departure_header = self.is_element_present(*DeparturePageLocators.DEPARTURE_HEADER)
+        assert departure_header, 'No go to departure page'
+        current_url_departure = self.browser.current_url
+        print('Current url departure',current_url_departure)
+        assert 'departure' in current_url_departure, 'The link does not lead to the departure page ' + current_url_departure
+
+class TourPage(BasePage):        
     def click_on_the_tour_link(self):
         card_link = self.browser.find_element(*MainPageLocators.LINK_ON_CARD)
         card_link.click()
-        transition_check_tour = self.browser.find_element(*MainPageLocators.TRANSITION_CHECK_TOUR).text
-        assert transition_check_tour, 'No go to tour page'
 
     def should_be_tour_page(self):
+        transition_check_tour = self.browser.find_element(*TourPageLocators.TOUR_HEADER)
+        assert transition_check_tour, 'No go to tour page'
         assert 'tour' in self.browser.current_url, 'The link does not lead to the tour page'
         
 

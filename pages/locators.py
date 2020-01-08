@@ -9,7 +9,11 @@ class MainPageLocators():
     PICTURE_ON_CARD = (By.CLASS_NAME, "card-img-top")
     CONTENT_ON_CARD = (By.CLASS_NAME, "card-text")
     LINK_ON_CARD = (By.CLASS_NAME, "btn-primary")
-    TRANSITION_CHECK_DEPARTURE = (By.CLASS_NAME, "display-5")
-    TRANSITION_CHECK_TOUR = (By.CLASS_NAME, "btn-success")
+
+class DeparturePageLocators():
+    DEPARTURE_HEADER = (By.CLASS_NAME, "display-5")
     
+class TourPageLocators():
+    TOUR_HEADER = (By.CLASS_NAME, "btn-success")
+
 
