@@ -1,6 +1,6 @@
-from .pages.main_page import MainPage
-from .pages.main_page import DeparturePage
-from .pages.main_page import TourPage
+from pages.main_page import MainPage
+from pages.main_page import DeparturePage
+from pages.main_page import TourPage
 
 link = "https://stepik-flask01.herokuapp.com/"
 
@@ -40,14 +40,16 @@ def test_cards_have_different_link(browser):
     page.cards_have_different_links()
 
 def test_link_leads_to_the_departure_page(browser):
-    page = DeparturePage(browser, link)
+    page = MainPage(browser, link)
     page.open()
     page.click_on_the_departure_link()
-    page.should_be_departure_page()
+    page_departure = DeparturePage(browser, link)
+    page_departure.should_be_departure_page()
 
 def test_link_leads_to_tour_page(browser):
-    page = TourPage(browser, link)
+    page = MainPage(browser, link)
     page.open()
     page.click_on_the_tour_link()
-    page.should_be_tour_page()
+    page_tour = TourPage(browser, link)
+    page_tour.should_be_tour_page()
 
