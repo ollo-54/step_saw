@@ -1,7 +1,5 @@
 from pages.base_page import BasePage
 from pages.locators import MainPageLocators
-from pages.locators import DeparturePageLocators
-from pages.locators import TourPageLocators
 
 class MainPage(BasePage):
     def should_be_main_page_link_on_logo(self):
@@ -86,23 +84,5 @@ class MainPage(BasePage):
     def click_on_the_tour_link(self):
         card_link = self.browser.find_element(*MainPageLocators.LINK_ON_CARD)
         card_link.click()
-        
-class DeparturePage(BasePage):
 
-    def should_be_departure_page(self):
-        departure_header = self.is_element_present(*DeparturePageLocators.DEPARTURE_HEADER)
-        assert departure_header, 'No go to departure page'
-        current_url_departure = self.browser.current_url
-        print('Current url departure', current_url_departure)
-        assert 'departure' in current_url_departure, f"This is not departure page, expected 'departure' in the {current_url_departure}"
-
-class TourPage(BasePage):        
-
-    def should_be_tour_page(self):
-        tour_header = self.browser.find_element(*TourPageLocators.TOUR_HEADER)
-        assert tour_header, 'No go to tour page'
-        current_url_tour = self.browser.current_url
-        print('Current url tour', current_url_tour)
-        assert 'tour' in current_url_tour, f"This is not tour page, expected 'tour' in the {current_url_tour}"
-        
 
