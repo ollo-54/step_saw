@@ -1,4 +1,6 @@
 from pages.base_page import BasePage
+#from pages.locators import MainPageLocators
+#from pages.locators import DeparturePageLocators
 from pages.locators import TourPageLocators
 
 

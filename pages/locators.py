@@ -12,8 +12,10 @@ class MainPageLocators():
 
 class DeparturePageLocators():
     DEPARTURE_HEADER = (By.CLASS_NAME, 'display-5')
+    CARDS_IN_DESCRIPTION = (By.CLASS_NAME, 'mb-4')
     
 class TourPageLocators():
     TOUR_HEADER = (By.CLASS_NAME, 'btn-success')
+    PRICE_TOUR = (By.CLASS_NAME, 'btn-lg')
 
 

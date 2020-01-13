@@ -85,4 +85,3 @@ class MainPage(BasePage):
         card_link = self.browser.find_element(*MainPageLocators.LINK_ON_CARD)
         card_link.click()
 
-

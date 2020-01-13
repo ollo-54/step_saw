@@ -1,5 +1,7 @@
 from selenium.common.exceptions import NoSuchElementException
 from pages.locators import MainPageLocators
+#from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.support.ui import WebDriverWait
 
 class BasePage():
     def __init__(self, browser, url, timeout=3):
