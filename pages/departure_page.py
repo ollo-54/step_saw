@@ -4,7 +4,6 @@ from pages.locators import DeparturePageLocators
 from pages.locators import TourPageLocators
 import re
 
-
 class DeparturePage(BasePage):
 
     def should_be_departure_page(self):
