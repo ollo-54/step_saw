@@ -32,6 +32,5 @@ def link(request):
     link = request.config.getoption('link')
     print(link)
     if link is None:
-        print('You did not indicate a link')
-        pytest.skip()
+        pytest.fail('You did not indicate a link')
     return link

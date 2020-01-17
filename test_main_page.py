@@ -12,30 +12,30 @@ def test_menu_should_be_presented(browser, link):
     page.open()
     page.should_be_menu_on_page()
 
-def test_amount_cards_on_page(browser, link):
+def test_amount_tour_cards_on_page(browser, link):
     page = MainPage(browser, link)
     page.open()
-    page.should_be_cards_on_page()
+    page.should_be_tour_cards_on_page()
 
 def test_links_lead_to_different_pages(browser, link):
     page = MainPage(browser, link)
     page.open()
     page.links_lead_to_different_pages()
 
-def test_cards_have_different_pictures(browser, link):
+def test_tour_cards_have_different_pictures(browser, link):
     page = MainPage(browser, link)
     page.open()
-    page.cards_have_different_pictures()
+    page.tour_cards_have_different_pictures()
 
-def test_cards_have_different_content(browser, link):
+def test_tour_cards_have_different_content(browser, link):
     page = MainPage(browser, link)
     page.open()
-    page.cards_have_different_content()
+    page.tour_cards_have_different_content()
 
-def test_cards_have_different_link(browser, link):
+def test_tour_cards_have_different_link(browser, link):
     page = MainPage(browser, link)
     page.open()
-    page.cards_have_different_links()
+    page.tour_cards_have_different_links()
 
 def test_link_leads_to_the_departure_page(browser, link):
     page = MainPage(browser, link)
@@ -47,6 +47,6 @@ def test_link_leads_to_the_departure_page(browser, link):
 def test_link_leads_to_tour_page(browser, link):
     page = MainPage(browser, link)
     page.open()
-    page.click_on_the_tour_link()
+    page.click_on_the_tour_cards_link()
     page_tour = TourPage(browser, link)
     page_tour.should_be_tour_page()

@@ -11,11 +11,11 @@ class MainPage(BasePage):
         menu_main = self.is_element_present(*MainPageLocators.MENU_ON_PAGE)
         assert menu_main, 'Menu is not on the page'
 
-    def should_be_cards_on_page(self):
-        cards = self.browser.find_elements(*MainPageLocators.CARDS)
-        amount_cards = len(cards)
-        print('Amount of cards per page ' + str(amount_cards))
-        assert amount_cards >= 3, 'Less than three cards per page'
+    def should_be_tour_cards_on_page(self):
+        tour_cards = self.browser.find_elements(*MainPageLocators.TOUR_CARDS)
+        amount_tour_cards = len(tour_cards)
+        print('Amount of tour cards per page ' + str(amount_tour_cards))
+        assert amount_tour_cards >= 3, 'Less than three tour cards per page'
     
     def links_lead_to_different_pages(self):
         menu_items = self.browser.find_elements(*MainPageLocators.MENU_ITEMS)
@@ -32,15 +32,8 @@ class MainPage(BasePage):
         print('Total ' + str(len(list_of_links)) + ' links, ' + str(len(list_of_links_set)) + ' of which are unique')
         assert len(list_of_links) == len(list_of_links_set), 'Duplicate links'            
 
-
-
     def click_on_the_departure_link(self):
         menu_item = self.browser.find_element(*MainPageLocators.MENU_ITEMS)
         menu_item.click()
-
-#    def click_on_the_tour_link(self):
-#        card_link = self.browser.find_element(*MainPageLocators.LINK_ON_CARD)
-#        card_link.click()
-
 
 
