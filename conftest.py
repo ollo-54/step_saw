@@ -33,6 +33,4 @@ def link(request):
     print(link)
     if link is None:
         pytest.fail('You did not indicate a link')    
-#        print('You did not indicate a link')
-#        pytest.skip()
     return link

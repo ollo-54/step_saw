@@ -10,7 +10,6 @@ class MainPage(BasePage):
     def should_be_menu_on_page(self):
         menu_main = self.is_element_present(*MainPageLocators.MENU_ON_PAGE)
         assert menu_main, 'Menu is not on the page'
-        print('Menu is on the page')
     
     def links_lead_to_different_pages(self):
         menu_items = self.browser.find_elements(*MainPageLocators.MENU_ITEMS)

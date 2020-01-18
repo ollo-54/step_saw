@@ -18,7 +18,6 @@ class BasePage():
         return True
 
     def should_be_exact_text(self, expected_text, real_text):
-        print(expected_text)
         assert expected_text in real_text, f"Should be text '{expected_text}' in '{real_text}'"
 
 
