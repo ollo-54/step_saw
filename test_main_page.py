@@ -15,7 +15,8 @@ def test_menu_should_be_presented(browser, link):
 def test_amount_tour_cards_on_page(browser, link):
     page = MainPage(browser, link)
     page.open()
-    page.should_be_tour_cards_on_page()
+    tour_cards_amount = page.get_amount_of_tour_cards()
+    assert tour_cards_amount >= 3, f"Expected 3+ tours tour card, but got {tours_amount}"
 
 def test_links_lead_to_different_pages(browser, link):
     page = MainPage(browser, link)

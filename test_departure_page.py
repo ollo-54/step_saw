@@ -23,11 +23,10 @@ def test_departure_general_info(browser, link):
     page.open()
     departure_description_text = page.get_departure_description_text()
     tour_cards_amount = page.get_amount_of_tour_cards()
-    assert tour_cards_amount >= 3, f"Expected 3+ tours tour card, but got {tours_amount}"
     
     amount_expected_text =  f"Найдено {tour_cards_amount} туров"
     page.should_be_exact_text(amount_expected_text, departure_description_text)
-    
+        
     price_expected_text = 'от 52000 до 68000 и'
     page.should_be_exact_text(price_expected_text, departure_description_text)
     
@@ -59,4 +58,5 @@ def test_tour_cards_link_on_departure_leads_to_tour_page(browser, link):
     page.click_on_the_tour_cards_link()
     page_tour = TourPage(browser, link)
     page_tour.should_be_tour_page()
+
 

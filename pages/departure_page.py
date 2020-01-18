@@ -2,7 +2,6 @@ from pages.base_page import BasePage
 from pages.locators import MainPageLocators
 from pages.locators import DeparturePageLocators
 from pages.locators import TourPageLocators
-import re
 
 class DeparturePage(BasePage):
 
@@ -25,9 +24,4 @@ class DeparturePage(BasePage):
         departure_description_text = self.browser.find_element(*DeparturePageLocators.DEPARTURE_DESCRIPTION).text
         return departure_description_text
 
-    def get_amount_of_tour_cards(self):
-        link_on_tour_cards = self.browser.find_elements(*MainPageLocators.LINK_ON_TOUR_CARD)
-        amount_of_tour_cards_with_link = len(link_on_tour_cards)
-        print('Amount of tour cards per page ' + str(amount_of_tour_cards_with_link))
-        return amount_of_tour_cards_with_link
 

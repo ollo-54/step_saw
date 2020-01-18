@@ -18,7 +18,8 @@ class BasePage():
         return True
 
     def should_be_exact_text(self, expected_text, real_text):
-        assert expected_text in real_text, f"Expected text: {expected_text}, but got: {real_text}"
+        print(expected_text)
+        assert expected_text in real_text, f"Should be text '{expected_text}' in '{real_text}'"
 
 
 
@@ -71,4 +72,10 @@ class BasePage():
         tour_cards_link = self.browser.find_element(*MainPageLocators.LINK_ON_TOUR_CARD)
         tour_cards_link.click()
 
+
+    def get_amount_of_tour_cards(self):
+        link_on_tour_cards = self.browser.find_elements(*MainPageLocators.LINK_ON_TOUR_CARD)
+        amount_of_tour_cards_with_link = len(link_on_tour_cards)
+        print('Amount of tour cards per page ' + str(amount_of_tour_cards_with_link))
+        return amount_of_tour_cards_with_link
 

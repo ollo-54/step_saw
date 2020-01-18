@@ -10,12 +10,7 @@ class MainPage(BasePage):
     def should_be_menu_on_page(self):
         menu_main = self.is_element_present(*MainPageLocators.MENU_ON_PAGE)
         assert menu_main, 'Menu is not on the page'
-
-    def should_be_tour_cards_on_page(self):
-        tour_cards = self.browser.find_elements(*MainPageLocators.TOUR_CARDS)
-        amount_tour_cards = len(tour_cards)
-        print('Amount of tour cards per page ' + str(amount_tour_cards))
-        assert amount_tour_cards >= 3, 'Less than three tour cards per page'
+        print('Menu is on the page')
     
     def links_lead_to_different_pages(self):
         menu_items = self.browser.find_elements(*MainPageLocators.MENU_ITEMS)
