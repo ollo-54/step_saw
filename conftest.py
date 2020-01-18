@@ -6,7 +6,7 @@ def pytest_addoption(parser):
     parser.addoption('--browser', action='store', default='chrome', help='Choose browser: chrome or firefox')
     parser.addoption('--link', action='store', help='Enter link')
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='session')
 def browser(request):
     browser = request.config.getoption('browser')
 
@@ -32,5 +32,5 @@ def link(request):
     link = request.config.getoption('link')
     print(link)
     if link is None:
-        pytest.fail('You did not indicate a link')    
+        pytest.fail('You did not indicate a link')
     return link
