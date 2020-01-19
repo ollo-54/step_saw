@@ -1,13 +1,16 @@
 from pages.main_page import MainPage
 from pages.departure_page import DeparturePage
 from pages.tour_page import TourPage
+from data_handler import Data
 
 def test_should_be_departure_header(browser, link):
     link_dep=f'{link}/departure/msk'
     page = DeparturePage(browser, link_dep)
     page.open()
     header_text = page.get_header_text()
-    expected_text = "Летим Из Москвы"
+    data = Data()
+    header_departure = data.get_departure('msk')
+    expected_text = f'Летим {header_departure}'
     page.should_be_exact_text(expected_text, header_text)
 
 def test_amount_tour_cards_on_departure_page(browser, link):
@@ -24,13 +27,15 @@ def test_departure_general_info(browser, link):
     departure_description_text = page.get_departure_description_text()
     tour_cards_amount = page.get_amount_of_tour_cards()
     
-    amount_expected_text =  f"Найдено {tour_cards_amount} туров"
+    amount_expected_text = f'Найдено {tour_cards_amount} туров'
     page.should_be_exact_text(amount_expected_text, departure_description_text)
         
-    price_expected_text = 'от 52000 до 68000 и'
+    data = Data()
+    departure_prices = data.get_tour_prices('msk')
+    price_expected_text = f'от {min(data.get_tour_prices(departure="msk"))} до {max(data.get_tour_prices(departure="msk"))} и'
     page.should_be_exact_text(price_expected_text, departure_description_text)
     
-    days_expected_text = 'от 8 ночей до 10 ночей'
+    days_expected_text = f'от {min(data.get_tours_duration_of_stay(departure="msk"))} ночей до {max(data.get_tours_duration_of_stay(departure="msk"))} ночей'
     page.should_be_exact_text(days_expected_text, departure_description_text)
 
 def test_tour_cards_on_departure_page_have_different_pictures(browser, link):
