@@ -24,4 +24,7 @@ class DeparturePage(BasePage):
         departure_description_text = self.browser.find_element(*DeparturePageLocators.DEPARTURE_DESCRIPTION).text
         return departure_description_text
 
+    def get_departure_tour_title_text(self):
+        departure_tour_title_text = self.browser.find_element(*DeparturePageLocators.DEPARTURE_TOUR_TITLE).text
+        return departure_tour_title_text
 
