@@ -1,6 +1,5 @@
 from pages.base_page import BasePage
 from pages.locators import TourPageLocators
-from pages.locators import DeparturePageLocators
 
 
 class TourPage(BasePage):        
@@ -12,7 +11,7 @@ class TourPage(BasePage):
         print('Current url tour', current_url_tour)
         assert 'tour' in current_url_tour, f"This is not tour page, expected 'tour' in the {current_url_tour}"
 
-    def get_picture_on_tour_page(self):
+    def get_picture_src_on_tour_page(self):
         picture_on_tour_page = self.browser.find_element(*TourPageLocators.PICTURE_ON_TOUR_PAGE)
         return picture_on_tour_page.get_attribute("src")
 

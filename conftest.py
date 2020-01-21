@@ -2,9 +2,11 @@ import pytest
 from selenium.webdriver.chrome.options import Options
 from selenium import webdriver
 
+
 def pytest_addoption(parser):
     parser.addoption('--browser', action='store', default='chrome', help='Choose browser: chrome or firefox')
     parser.addoption('--link', action='store', default='http://localhost:5000', help='Enter link')
+
 
 @pytest.fixture(scope='session')
 def browser(request):
@@ -21,16 +23,13 @@ def browser(request):
         browser = webdriver.Firefox(firefox_profile=fp)
 
     else:
-        print('Browser {} still is not implemented'.format(browser))
+        print('Browser {} is not implemented yet'.format(browser))
 
     yield browser
     print('\nquit browser ')
     browser.quit()
 
+
 @pytest.fixture(scope='function')
 def link(request):
-    link = request.config.getoption('link')
-    print(link)
-    if link is None:
-        pytest.fail('You did not indicate a link')
-    return link
+    return request.config.getoption('link')
