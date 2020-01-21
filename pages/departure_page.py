@@ -1,7 +1,5 @@
 from pages.base_page import BasePage
-from pages.locators import MainPageLocators
 from pages.locators import DeparturePageLocators
-from pages.locators import TourPageLocators
 
 class DeparturePage(BasePage):
 
@@ -24,4 +22,7 @@ class DeparturePage(BasePage):
         departure_description_text = self.browser.find_element(*DeparturePageLocators.DEPARTURE_DESCRIPTION).text
         return departure_description_text
 
+    def get_departure_tour_title_text(self):
+        departure_tour_title_text = self.browser.find_element(*DeparturePageLocators.DEPARTURE_TOUR_TITLE).text
+        return departure_tour_title_text
 
