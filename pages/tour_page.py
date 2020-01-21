@@ -12,17 +12,21 @@ class TourPage(BasePage):
         print('Current url tour', current_url_tour)
         assert 'tour' in current_url_tour, f"This is not tour page, expected 'tour' in the {current_url_tour}"
 
-#    def get_departure_tour_title_text(self):
-#        departure_tour_title_text = self.browser.find_element(*DeparturePageLocators.DEPARTURE_TOUR_TITLE).text
-#        return departure_tour_title_text
+    def get_picture_on_tour_page(self):
+        picture_on_tour_page = self.browser.find_element(*TourPageLocators.PICTURE_ON_TOUR_PAGE)
+        return picture_on_tour_page.get_attribute("src")
+
+    def get_content_on_tour_page_text(self):
+        content_on_tour_page_text = self.browser.find_element(*TourPageLocators.CONTENT_ON_TOUR_PAGE)
+        return content_on_tour_page_text.text
 
     def get_tour_title_text(self):
         tour_title_text = self.browser.find_element(*TourPageLocators.TOUR_TITLE).text
         return tour_title_text
 
     def get_tour_description_text(self):
-        tour_duration_of_stay = self.browser.find_element(*TourPageLocators.TOUR_DESCRIPTION).text
-        return tour_duration_of_stay
+        tour_description_text = self.browser.find_element(*TourPageLocators.TOUR_DESCRIPTION).text
+        return tour_description_text
 
     def get_tour_price_text(self):
         tour_price_text = self.browser.find_element(*TourPageLocators.TOUR_PRICE).text

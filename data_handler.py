@@ -40,12 +40,12 @@ class Data:
         tour_duration_of_stay = tour[id-1]['nights']
         return tour_duration_of_stay
 
-    def tour_picture(self, id):
+    def get_tour_picture(self, id):
         tour = self.data['tours']
         tour_picture = tour[id-1]['picture']
         return tour_picture
 
-    def tour_content(self, id):
+    def get_tour_content(self, id):
         tour = self.data['tours']
         tour_content = tour[id-1]['description']
         return tour_content

@@ -21,5 +21,6 @@ class TourPageLocators():
     TOUR_TITLE = (By.CLASS_NAME, 'mt-4')
     TOUR_DESCRIPTION = (By.CLASS_NAME, 'lead')
     TOUR_PRICE = (By.CLASS_NAME, 'btn-lg')
-
+    PICTURE_ON_TOUR_PAGE = (By.CLASS_NAME, 'img-fluid')
+    CONTENT_ON_TOUR_PAGE = (By.CLASS_NAME, 'my-4')
 

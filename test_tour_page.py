@@ -36,15 +36,21 @@ def test_tour_price(browser,link):
     page.should_be_exact_text(tour_page_price, tour_page_price_text)
 
 def test_tours_have_different_pictures_and_content(browser, link):
-    page = TourPage(browser, link)
-    data = Data()
-    tour_picture_1 = data.tour_picture(id=1)
-    tour_content_1 = data.tour_content(id=1)
+    i = 0
+    for i in range(1, 2):
+        link_tour = f'{link}tour/{i}'
+        page = TourPage(browser, link_tour)
+        page.open()
+        
+        tour_picture_on_page = page.get_picture_on_tour_page()
+        tour_content_on_page = page.get_content_on_tour_page_text()
+        
+        data = Data()
+        tour_picture = data.get_tour_picture(id=i)
+        assert tour_picture == tour_picture_on_page, f'Different pictures on tour page {i} and data'
 
-    tour_picture_2 = data.tour_picture(id=2)
-    tour_content_2 = data.tour_content(id=2)
-    
-    assert tour_picture_1 != tour_picture_2, 'Duplicate pictures in tours'
-    assert tour_content_1 != tour_content_2, 'Duplicate content in tours'
-
+        tour_content = data.get_tour_content(id=i)
+        assert tour_content == tour_content_on_page, f'Different content on tour page {i} and data'
+        i = i + 1
+        
 

@@ -5,7 +5,8 @@ class MainPage(BasePage):
     def should_be_main_page_link_on_logo(self):
         logo_link = self.browser.find_element(*MainPageLocators.LOGO_LINK).get_attribute('href')
         print('Link - ' + str(logo_link))
-        assert logo_link == 'https://stepik-flask01.herokuapp.com/', 'There is no link to the main page on the logo'
+        link_main_page = self.browser.current_url
+        assert logo_link == link_main_page, 'There is no link to the main page on the logo'
 
     def should_be_menu_on_page(self):
         menu_main = self.is_element_present(*MainPageLocators.MENU_ON_PAGE)
