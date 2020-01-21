@@ -24,7 +24,8 @@ def browser(request):
 
     else:
         print('Browser {} is not implemented yet'.format(browser))
-
+    browser.implicitly_wait(10)
+    browser.set_window_size(1200, 1000)
     yield browser
     print('\nquit browser ')
     browser.quit()
