@@ -1,10 +1,11 @@
 from pages.departure_page import DeparturePage
 from pages.tour_page import TourPage
 from data_handler import Data
+from urllib.parse import urljoin
 
 
 def test_tour_title_on_departure_page_and_tour_page(browser, link):
-    link_dep = f'{link}/departure/msk'
+    link_dep = urljoin(link, "/departure/msk")
     page = DeparturePage(browser, link_dep)
     page.open()
     departure_tour_title_text = page.get_departure_tour_title_text()
@@ -16,7 +17,7 @@ def test_tour_title_on_departure_page_and_tour_page(browser, link):
 
 
 def test_tour_general_info(browser, link):
-    link_tour = f'{link}/tour/4'
+    link_tour = urljoin(link, "/tour/4")
     page = TourPage(browser, link_tour)
     page.open()
     data = Data()
@@ -30,7 +31,7 @@ def test_tour_general_info(browser, link):
 
 
 def test_tour_price(browser, link):
-    link_tour = f'{link}/tour/4'
+    link_tour = urljoin(link, "/tour/4")
     page = TourPage(browser, link_tour)
     page.open()
     data = Data()
@@ -41,7 +42,7 @@ def test_tour_price(browser, link):
 
 def test_tours_have_different_pictures_and_content(browser, link):
     for i in range(1, 3):
-        link_tour = f'{link}/tour/{i}'
+        link_tour = urljoin(link, f"/tour/{i}")
         page = TourPage(browser, link_tour)
         page.open()
         
