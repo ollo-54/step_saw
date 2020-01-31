@@ -36,7 +36,7 @@ def test_departure_general_info(browser, link):
         
     data = Data()
     departure_prices = data.get_tour_prices('msk')
-    price_expected_text = f'от {min(departure_prices)} дО {max(departure_prices)} и'
+    price_expected_text = f'от {min(departure_prices)} до {max(departure_prices)} и'
     page.should_be_exact_text(price_expected_text.lower(), departure_description_text.lower())
 
     departure_duration_of_stay = data.get_tours_duration_of_stay(departure="msk")

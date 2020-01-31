@@ -13,9 +13,7 @@ def test_tour_title_on_departure_page_and_tour_page(browser, link):
     page = TourPage(browser, link_dep)
     tour_title_text = page.get_tour_title_text()
     page.should_be_exact_text(departure_tour_title_text.lower(), tour_title_text.lower())
-#    assert departure_tour_title_text == tour_title_text, \
-#        f'The title of the tour on the destination page "{departure_tour_title_text}" does not match the title of the tour on the tour page "{tour_title_text}"'
-
+    
 
 def test_tour_general_info(browser, link):
     link_tour = urljoin(link, "/tour/4")
