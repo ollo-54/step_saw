@@ -60,3 +60,4 @@ def test_link_leads_to_tour_page(browser, link):
     page.click_on_the_tour_cards_link()
     page_tour = TourPage(browser, link)
     page_tour.should_be_tour_page()
+
