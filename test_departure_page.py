@@ -21,7 +21,7 @@ def test_amount_tour_cards_on_departure_page(browser, link):
     page = DeparturePage(browser, link_dep)
     page.open()
     tour_cards_amount = page.get_amount_of_tour_cards()
-    assert tour_cards_amount >= 3, f"Expected 3+ tours tour card, but got {tours_amount}"
+    assert tour_cards_amount >= 3, f"Expected 3+ tours tour card, but got {tour_cards_amount}"
 
 
 def test_departure_general_info(browser, link):
